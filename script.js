@@ -182,21 +182,49 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Contact form submission
+    // Contact form submission via Google Apps Script
     const contactForm = document.getElementById('contactForm');
     if (contactForm) {
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            
-            // Get form values
-            const companyName = document.getElementById('companyName').value;
-            const contactName = document.getElementById('contactName').value;
-            
-            // Show success message (Simulated)
-            alert(`${companyName} (${contactName})님의 문의가 성공적으로 접수되었습니다.\n담당자가 확인 후 빠르게 연락드리겠습니다. 감사합니다!`);
-            
-            // Reset form
-            contactForm.reset();
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault(); // 페이지 새로고침 방지
+
+            // Vercel에서 구글 서버(API)로 데이터를 보낼 주소
+            // 앱스 스크립트 배포 후 얻은 '웹 앱 URL'을 이곳에 꼭 붙여넣으세요!
+            const scriptUrl = "여기에_앱스크립트_배포_URL_입력"; 
+
+            // 사용자가 입력한 값 가져오기 (input 태그의 id 값과 매칭)
+            const formData = {
+                company: document.getElementById("companyName").value,
+                name: document.getElementById("contactName").value,
+                phone: document.getElementById("contactPhone").value,
+                budget: document.getElementById("budget").value,
+                details: document.getElementById("eventScale").value
+            };
+
+            try {
+                // Vercel ➡️ 구글 앱스 스크립트로 데이터 전송
+                // * 꿀팁: CORS 보안 에러를 피하기 위해 Content-Type을 반드시 text/plain으로 설정합니다.
+                const response = await fetch(scriptUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'text/plain;charset=utf-8',
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                const result = await response.json();
+
+                if (result.status === "success") {
+                    alert("문의가 성공적으로 접수되었습니다. 담당자가 빠르게 연락드리겠습니다!");
+                    // 폼 입력창 초기화
+                    contactForm.reset(); 
+                } else {
+                    alert("접수 중 일시적인 오류가 발생했습니다.");
+                }
+            } catch (error) {
+                console.error("전송 에러:", error);
+                alert("서버와 통신할 수 없습니다. 잠시 후 다시 시도해주세요.");
+            }
         });
     }
 });
