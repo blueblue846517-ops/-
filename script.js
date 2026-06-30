@@ -182,47 +182,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    }
 
 });
-
-// 폼 제출 버튼에 연결할 함수
-async function submitInquiry(event) {
-  event.preventDefault(); // 페이지 새로고침 방지
-
-  // Vercel에서 구글 서버(API)로 데이터를 보낼 주소
-  // 새 배포를 눌러 얻은 완성된 '웹 앱 URL'을 꼭 붙여넣으세요! (끝이 /exec로 끝나야 합니다)
-  const scriptUrl = "여기에_앱스크립트_배포_URL_입력"; 
-
-  // 사용자가 입력한 값 가져오기 (input 태그의 id 값과 매칭)
-  const formData = {
-    company: document.getElementById("company").value,
-    name: document.getElementById("name").value,
-    phone: document.getElementById("phone").value,
-    budget: document.getElementById("budget").value,
-    details: document.getElementById("details").value
-  };
-
-  try {
-    // 'no-cors' 모드를 사용하여 브라우저가 리다이렉트 주소의 CORS 헤더 부재를 이유로 전송을 차단하지 못하게 강제합니다.
-    await fetch(scriptUrl, {
-      method: 'POST',
-      mode: 'no-cors',
-      headers: {
-        'Content-Type': 'text/plain;charset=utf-8',
-      },
-      body: JSON.stringify(formData)
-    });
-
-    // 'no-cors' 모드 특성상 구글에서 리턴하는 성공 여부 JSON 텍스트를 파싱하진 못하지만,
-    // 전송 실패(네트워크 단절 등)인 경우 아래 catch 블록으로 바로 튕겨나가므로
-    // 여기까지 코드가 흘러왔다면 데이터가 구글 시트에 안전하게 추가된 것입니다.
-    alert("문의가 성공적으로 접수되었습니다. 담당자가 빠르게 연락드리겠습니다!");
-    
-    // 폼 입력창 초기화
-    document.getElementById("contactForm").reset(); 
-
-  } catch (error) {
-    console.error("전송 에러:", error);
-    alert("서버와 통신할 수 없습니다. 잠시 후 다시 시도해주세요.");
-  }
-}
