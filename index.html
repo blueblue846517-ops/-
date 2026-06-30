@@ -258,42 +258,48 @@
                 </div>
                 
                 <div class="contact-form-wrap">
-                    <form id="contactForm" onsubmit="submitInquiry(event)">
+                    <form 
+                        action="https://docs.google.com/forms/d/10IiPIw0vqMvxPtjJKTJMUdtiu25LBgCV6Y4LRqVJym4/formResponse" 
+                        method="POST" 
+                        target="blank_iframe"
+                        id="contactForm"
+                        onsubmit="alert('🎉 문의가 정상적으로 접수되었습니다. 확인 후 빠르게 연락드리겠습니다!'); setTimeout(function(){ document.getElementById('contactForm').reset(); }, 100); return true;">
                         <div class="form-row">
                             <div class="form-group">
                                 <label class="form-label" for="company">회사/기관명</label>
-                                <input type="text" id="company" class="form-control" placeholder="예: (주)톤앤무브" required>
+                                <input type="text" name="entry.2116052852" id="company" class="form-control" placeholder="예: (주)톤앤무브" required>
                             </div>
                             <div class="form-group">
                                 <label class="form-label" for="name">담당자 성함</label>
-                                <input type="text" id="name" class="form-control" placeholder="예: 홍길동 과장" required>
+                                <input type="text" name="entry.1558582620" id="name" class="form-control" placeholder="예: 홍길동 과장" required>
                             </div>
                         </div>
                         
                         <div class="form-row">
                             <div class="form-group">
                                 <label class="form-label" for="phone">연락처</label>
-                                <input type="tel" id="phone" class="form-control" placeholder="010-0000-0000" required>
+                                <input type="tel" name="entry.766090601" id="phone" class="form-control" placeholder="010-0000-0000" required>
                             </div>
                             <div class="form-group">
                                 <label class="form-label" for="budget">예상 예산 (선택)</label>
-                                <select id="budget" class="form-control">
-                                    <option value="" disabled selected>예산 범위를 선택해주세요</option>
-                                    <option value="1천만원 미만">1천만원 미만</option>
-                                    <option value="1천만원 ~ 3천만원">1천만원 ~ 3천만원</option>
-                                    <option value="3천만원 ~ 5천만원">3천만원 ~ 5천만원</option>
-                                    <option value="5천만원 이상">5천만원 이상</option>
+                                <select name="entry.1060472253" id="budget" class="form-control">
+                                    <option value="">예산 범위를 선택해주세요</option>
+                                    <option value="1000만원 이하">1000만원 이하</option>
+                                    <option value="1000~3000만원">1000~3000만원</option>
+                                    <option value="3000~5000만원">3000~5000만원</option>
+                                    <option value="5000만원 이상">5000만원 이상</option>
                                 </select>
                             </div>
                         </div>
                         
                         <div class="form-group">
                             <label class="form-label" for="details">행사 규모 및 상세 내용</label>
-                            <textarea id="details" class="form-control" placeholder="예상 참가 인원, 행사 일정, 원하시는 서비스 등을 최대한 자세히 적어주세요." required></textarea>
+                            <textarea name="entry.288713975" id="details" class="form-control" placeholder="예상 참가 인원, 행사 일정 등을 상세히 적어주세요." required></textarea>
                         </div>
                         
                         <button type="submit" class="btn btn-primary submit-btn">문의 접수하기</button>
                     </form>
+                    <iframe name="blank_iframe" id="blank_iframe" style="display:none;"></iframe>
                 </div>
             </div>
         </div>
