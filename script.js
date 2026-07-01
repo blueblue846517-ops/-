@@ -180,8 +180,4 @@ document.addEventListener('DOMContentLoaded', () => {
         closePrivacyBtn.addEventListener('click', () => {
             privacyModal.style.display = 'none';
         });
-    }
-
-    }
-
-});
+    }});
