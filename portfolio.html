@@ -20,6 +20,87 @@
     
     <!-- Stylesheet -->
     <link rel="stylesheet" href="assets/css/styles.css?v=2.1">
+    <!-- Schema Markup (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "HomeAndConstructionBusiness",
+          "@id": "https://daejin-lilac.vercel.app/#organization",
+          "name": "대진특수방수",
+          "url": "https://daejin-lilac.vercel.app/",
+          "logo": "https://daejin-lilac.vercel.app/assets/images/logo.png",
+          "image": "https://daejin-lilac.vercel.app/assets/images/og_image.jpg",
+          "description": "옥상, 지하, 외벽방수, 인젝션방수 등 각종 건물 보수 업체 대진특수방수입니다.",
+          "telephone": "010-5345-8465",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "용마산로 32길 32",
+            "addressLocality": "광진구",
+            "addressRegion": "서울특별시",
+            "addressCountry": "KR"
+          },
+          "openingHoursSpecification": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+            "opens": "08:00",
+            "closes": "18:00"
+          },
+          "areaServed": [
+            { "@type": "City", "name": "서울특별시" },
+            { "@type": "City", "name": "강남구" },
+            { "@type": "City", "name": "서초구" },
+            { "@type": "City", "name": "송파구" },
+            { "@type": "City", "name": "광진구" },
+            { "@type": "City", "name": "중랑구" },
+            { "@type": "City", "name": "동대문구" }
+          ],
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "주요 시공 항목",
+            "itemListElement": [
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "옥상 우레탄 방수" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "외벽 방수" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "지하주차장 방수" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "인젝션 방수" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "건물 각종 보수 공사" } }
+            ]
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://daejin-lilac.vercel.app/#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "방수 공사 견적은 어떻게 받아볼 수 있나요?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "현장 방문을 통해 꼼꼼히 상태를 점검한 후, 현장 맞춤형 견적을 무료로 산출해 드립니다. 언제든 대표번호(010-5345-8465)로 문의해 주세요."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "공사 후 A/S(하자보수)는 보장되나요?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "네, 대진특수방수는 시공 후에도 철저한 사후 관리와 하자 보수(A/S)를 보장하여 고객님께서 안심하실 수 있도록 끝까지 책임지고 있습니다."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "비가 오는 날이나 겨울철에도 방수 공사가 가능한가요?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "비가 오거나 기온이 영하로 떨어지는 날에는 우레탄이나 방수액이 제대로 건조되지 않아 하자의 원인이 됩니다. 따라서 맑고 건조한 날을 선택해 최적의 상태에서 시공을 진행합니다."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
 </head>
 <body>
 
